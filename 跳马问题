@@ -4,31 +4,31 @@
 using namespace std;
 
 #define MAXSIZE 100
-//¶¨ÒåÕ»ÖÐÔªËØ
+//å®šä¹‰æ ˆä¸­å…ƒç´ 
 typedef struct{
-    int x;  //¼ÇÂ¼x×ø±ê
-    int y;  //¼ÇÂ¼y×ø±ê
-    int d;  //¼ÇÂ¼ÒÆ¶¯·½Ïò
+    int x;  //è®°å½•xåæ ‡
+    int y;  //è®°å½•yåæ ‡
+    int d;  //è®°å½•ç§»åŠ¨æ–¹å‘
 }point;
 
-//¶¨ÒåÕ»µÄ½á¹¹
+//å®šä¹‰æ ˆçš„ç»“æž„
 typedef struct{
     point data[MAXSIZE];
     int top;
 }MazeStack;
-//ÉèÖÃ¿ÕÕ»
+//è®¾ç½®ç©ºæ ˆ
 void setNull(MazeStack *s){
     s->top = -1;
 }
-//ÅÐ¶ÏÕ»ÊÇ·ñÎª¿Õ
+//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 bool isEmpty(MazeStack *s){
     if(s->top>=0) return false;
     else return true;
 }
-//½øÕ»²Ù×÷
+//è¿›æ ˆæ“ä½œ
 MazeStack * push(MazeStack *s, point x){
     if(s->top>MAXSIZE-1){
-        printf("Õ»ÉÏÒç³ö£¡\n");
+        printf("æ ˆä¸Šæº¢å‡ºï¼\n");
         return s;
     } else{
         s->top++;
@@ -36,20 +36,20 @@ MazeStack * push(MazeStack *s, point x){
         return s;
     }
 }
-//ÍËÕ»²Ù×÷
+//é€€æ ˆæ“ä½œ
 point * pop(MazeStack *s){
     if(isEmpty(s)){
-        printf("Õ»Îª¿Õ£¡\n");
+        printf("æ ˆä¸ºç©ºï¼\n");
         return NULL;
     } else{
         s->top--;
         return &(s->data[s->top+1]);
     }
 }
-//È¡Õ»¶¥ÔªËØ
+//å–æ ˆé¡¶å…ƒç´ 
 point * getTop(MazeStack *s){
     if(isEmpty(s)){
-        printf("Õ»Îª¿Õ£¡\n");
+        printf("æ ˆä¸ºç©ºï¼\n");
         return NULL;
     } else{
         return &(s->data[s->top]);
@@ -57,7 +57,7 @@ point * getTop(MazeStack *s){
 }
 
 int chess[12][12] = {0};
-int count = 1;      //¼ÇÂ¼ÒÑ×ßµÄ²½Êý
+int count = 1;      //è®°å½•å·²èµ°çš„æ­¥æ•°
 int move[8][2] = {{2,1},{1,2},{-1,2},{-2,1},{-2,-1},{-1,-2},{1,-2},{2,-1}};
 
 void travel(int x, int y);
@@ -99,7 +99,7 @@ void travel(int x, int y){
     start.y=y;
     p=(point*)malloc(sizeof(point));
 
-    //½«ÆðµãÑ¹ÈëÕ»
+    //å°†èµ·ç‚¹åŽ‹å…¥æ ˆ
     s = push(s, start);
     while(count<64){
         for(;i<8;i++){
