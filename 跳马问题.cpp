@@ -66,14 +66,14 @@ void travel(int x, int y, int N);
 
 int main(){
     int N, xp, yp, i, j;
-    cout<<"Welcome to the chessboard travel program.\nThis program calculates the travel path from any position (x,y) for given chessboard size (n).\n\n";
-    cout<<"Please input the chessboard size (n):\n";
+    cout<<"-->>Welcome to the chessboard travel program.\n-->>This program calculates the travel path from any position (x,y) for given chessboard size (n).\n";
+    cout<<"\n-->>Please input the chessboard size (n):\n";
     cin>>N;
-    cout<<"Please input the x position of starting point:\n";
+    cout<<"\n-->>Please input the x position of starting point:\n";
     cin>>xp;
-    cout<<"Please input the y position of starting point:\n";
+    cout<<"\n-->>Please input the y position of starting point:\n";
     cin>>yp;
-    cout<<"Please wait."<<endl;
+    cout<<"\n-->>Please wait.\n"<<endl;
 
     //设置边界
     for(i=0;i<N+4;i++){
@@ -144,7 +144,9 @@ void travel(int x, int y, int N){
     if(count==N*N){
         while(!isEmpty(s)){
         p=pop(s);
-        printf("(%d, %d)\t", p->x-1, p->y-1);
+        if(s->top!=-1)
+            printf("(%d, %d)<-", p->x-1, p->y-1);
+        else printf("(%d, %d)", p->x-1, p->y-1);
         }
     }
     printf("\n");
