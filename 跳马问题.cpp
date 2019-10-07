@@ -3,6 +3,8 @@
 #include <stdio.h>
 using namespace std;
 
+###tihis is nwwewew
+
 #define MAXSIZE 100
 //定义栈中元素
 typedef struct{
